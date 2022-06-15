@@ -30,15 +30,15 @@ with open('/var/log/auth.log') as authlog:
         gmailauth = 'lckqasrkrdkczvxr'
 
         # Define the email subject and body - used triple quotes for body to span multiple lines for text aesthetics.
-        subject = 'Logon Failure Audit Detected!'
+        subject = 'Logon Failure Detected!'
         body = """
-        ***AUTOMATED - Do Not Reply!***
+        ***AUTOMATED - DO NOT REPLY!***
 
-        Sent to CYB333 Information Assurance Team.
+        This e-mail has been sent to the CYB333 Information Assurance Team / System Administrators.
 
-        Logon Failure Audit Detected -
+        Logon Failure Detected!
 
-        Please review, archive, clear, and take appropriate action.
+        Please review the authentication log, take appropriate action, then truncate.
         """
 
         # Defines the variable for the EmailMessage() function which has core functionality in modifying
@@ -70,7 +70,7 @@ with open('/var/log/auth.log') as authlog:
             input("""Unable to establish connection to SMTP server! 
         Check connection!
         Press ENTER to exit""")
-    # If an "authentication failure" is not found in auth.log, then quit.
+    # If an "authentication failure" is not found in auth.log, inform user, then quit.
     else:
         input('No authentication failures at this time. Press ENTER to acknowledge this message.')
         quit()
